@@ -131,7 +131,7 @@ flaky("some flaky block", function()
   it(...)
 end, {
   callback = function(element, status, attempts, ctx)
-    -- gets run on every retry
+    -- gets run on every attempt
   end,
 })
 ```
@@ -146,14 +146,14 @@ cli arguments.
 ### cli arguments
 
 ```
-  --retry=NUM       number of retries for flaky blocks (default: 5)
+  --attempts=NUM    number of attempts for flaky blocks (default: 5)
   --tag=TAG         tag for marking flaky blocks (default: 'flaky')
   --format=FORMAT   format string for flaky blocks
   --wait=TIME       seconds to wait between retries (default: 0)
 ```
 
 ```bash
-$ busted --helper=flaky -Xhelper --retry=10 -Xhelper --tag=failure ...
+$ busted --helper=flaky -Xhelper --attempts=10 -Xhelper --tag=failure ...
 ```
 
 ### block attributes
